@@ -1,0 +1,38 @@
+{
+  "name": "puja-booking-app",
+  "version": "1.0.0",
+  "description": "Puja booking system with Firebase Google Login authentication",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "start:node": "npx http-server",
+    "dev": "npx http-server --port 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "puja",
+    "booking",
+    "firebase",
+    "google-login",
+    "authentication"
+  ],
+  "author": "Gajipur Wala Naina Panda",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/puja-booking-app.git"
+  },
+  "devDependencies": {
+    "firebase": "^10.7.0",
+    "firebase-tools": "^12.0.0",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

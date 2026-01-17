@@ -1,0 +1,30 @@
+# Netlify Configuration
+
+[build]
+  command = "echo 'No build needed'"
+  publish = "."
+
+[dev]
+  command = "python -m http.server 8000"
+  port = 8000
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "max-age=3600"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "max-age=31536000,immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "max-age=31536000,immutable"

@@ -1,0 +1,47 @@
+.google-login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.google-login-btn:hover {
+    background: #f8f8f8;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.google-login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.google-login-btn svg {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.login-divider {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.loading.show {
+    display: block;
+}

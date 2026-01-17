@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gajipur Wala Naina Panda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-om"></i>
+                <span>Gajipur Wala Naina Panda</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li id="authNav"></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Welcome Back, <span id="userName">User</span>!</h1>
+                <p>Manage your puja bookings and account</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <div class="dashboard-sidebar">
+                    <nav class="sidebar-menu">
+                        <a href="#overview" class="sidebar-link active" data-tab="overview">
+                            <i class="fas fa-chart-line"></i> Overview
+                        </a>
+                        <a href="#bookings" class="sidebar-link" data-tab="bookings">
+                            <i class="fas fa-calendar"></i> My Bookings
+                        </a>
+                        <a href="#profile" class="sidebar-link" data-tab="profile">
+                            <i class="fas fa-user"></i> Profile Settings
+                        </a>
+                        <a href="#security" class="sidebar-link" data-tab="security">
+                            <i class="fas fa-lock"></i> Security
+                        </a>
+                        <a href="javascript:auth.logout()" class="sidebar-link logout-link">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Main Content -->
+                <div class="dashboard-content">
+                    <!-- Overview Tab -->
+                    <div class="tab-content active" id="overview">
+                        <h2>Dashboard Overview</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-calendar-check"></i>
+                                <div>
+                                    <h3 id="totalBookings">0</h3>
+                                    <p>Total Bookings</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-hourglass-half"></i>
+                                <div>
+                                    <h3 id="pendingBookings">0</h3>
+                                    <p>Pending Bookings</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h3 id="completedBookings">0</h3>
+                                    <p>Completed Bookings</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-actions">
+                            <h3>Quick Actions</h3>
+                            <div class="action-buttons">
+                                <a href="book-puja.html" class="action-btn">
+                                    <i class="fas fa-plus"></i> New Booking
+                                </a>
+                                <a href="#profile" class="action-btn sidebar-link" data-tab="profile">
+                                    <i class="fas fa-edit"></i> Edit Profile
+                                </a>
+                                <a href="contact.html" class="action-btn">
+                                    <i class="fas fa-phone"></i> Contact Support
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bookings Tab -->
+                    <div class="tab-content" id="bookings">
+                        <h2>My Bookings</h2>
+                        <div id="bookingsContainer" class="bookings-list">
+                            <p class="empty-state">No bookings yet. <a href="book-puja.html">Book a puja now!</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Profile Tab -->
+                    <div class="tab-content" id="profile">
+                        <h2>Profile Settings</h2>
+                        <form id="profileForm" class="profile-form">
+                            <div class="form-group">
+                                <label for="profileName">Full Name</label>
+                                <input type="text" id="profileName" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileEmail">Email Address (Cannot be changed)</label>
+                                <input type="email" id="profileEmail" name="email" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profilePhone">Phone Number</label>
+                                <input type="tel" id="profilePhone" name="phone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileDate">Member Since</label>
+                                <input type="text" id="profileDate" name="date" readonly>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Update Profile</button>
+                        </form>
+                    </div>
+
+                    <!-- Security Tab -->
+                    <div class="tab-content" id="security">
+                        <h2>Security Settings</h2>
+                        <form id="securityForm" class="security-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" name="current" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" name="new" required>
+                                <small>Minimum 6 characters</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" name="confirm" required>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Change Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gajipur Wala Naina Panda House. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        // Check if user is logged in
+        auth.requireLogin();
+
+        // Load user data
+        const user = auth.getCurrentUser();
+        document.getElementById('userName').textContent = user.name;
+
+        // Load profile data
+        function loadProfile() {
+            document.getElementById('profileName').value = user.name;
+            document.getElementById('profileEmail').value = user.email;
+            document.getElementById('profilePhone').value = user.phone;
+            
+            const users = JSON.parse(localStorage.getItem(auth.storageKey) || '{}');
+            const userData = users[user.email];
+            if (userData.registeredDate) {
+                document.getElementById('profileDate').value = userData.registeredDate;
+            }
+        }
+
+        // Load bookings
+        function loadBookings() {
+            const bookings = auth.getUserBookings();
+            const container = document.getElementById('bookingsContainer');
+            
+            if (bookings.length === 0) {
+                container.innerHTML = '<p class="empty-state">No bookings yet. <a href="book-puja.html">Book a puja now!</a></p>';
+            } else {
+                container.innerHTML = bookings.map((booking, index) => `
+                    <div class="booking-card">
+                        <div class="booking-header">
+                            <h3>Booking #${booking.id.slice(-6)}</h3>
+                            <span class="booking-status ${booking.status.toLowerCase()}">${booking.status}</span>
+                        </div>
+                        <div class="booking-details">
+                            <p><strong>Puja Type:</strong> ${booking.pujaType}</p>
+                            <p><strong>Date:</strong> ${booking.date}</p>
+                            <p><strong>Time:</strong> ${booking.time}</p>
+                            <p><strong>Participants:</strong> ${booking.participants}</p>
+                            <p><strong>Booked On:</strong> ${booking.bookingDate}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update stats
+            document.getElementById('totalBookings').textContent = bookings.length;
+            document.getElementById('pendingBookings').textContent = bookings.filter(b => b.status === 'Pending').length;
+            document.getElementById('completedBookings').textContent = bookings.filter(b => b.status === 'Completed').length;
+        }
+
+        // Tab switching
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.classList.contains('logout-link')) return;
+                e.preventDefault();
+                
+                const tabName = this.getAttribute('data-tab');
+                if (!tabName) return;
+
+                // Hide all tabs
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+
+                // Remove active class from links
+                document.querySelectorAll('.sidebar-link').forEach(l => {
+                    l.classList.remove('active');
+                });
+
+                // Show selected tab
+                document.getElementById(tabName).classList.add('active');
+                this.classList.add('active');
+            });
+        });
+
+        // Profile form submit
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('profileName').value;
+            const phone = document.getElementById('profilePhone').value;
+            
+            const result = auth.updateProfile(name, phone);
+            if (result.success) {
+                showNotification('success', result.message);
+                auth.updateAuthNav();
+            } else {
+                showNotification('error', result.message);
+            }
+        });
+
+        // Security form submit
+        document.getElementById('securityForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const oldPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+            
+            if (newPassword !== confirm) {
+                showNotification('error', 'Passwords do not match');
+                return;
+            }
+            
+            const result = auth.changePassword(oldPassword, newPassword);
+            if (result.success) {
+                showNotification('success', result.message);
+                document.getElementById('securityForm').reset();
+            } else {
+                showNotification('error', result.message);
+            }
+        });
+
+        // Initial load
+        loadProfile();
+        loadBookings();
+        auth.updateAuthNav();
+
+        // Phone validation
+        document.getElementById('profilePhone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9+\-\s]/g, '');
+        });
+    </script>
+</body>
+</html>

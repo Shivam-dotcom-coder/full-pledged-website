@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Gajipur Wala Naina Panda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-om"></i>
+                <span>Gajipur Wala Naina Panda</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="location.html" class="nav-link">Location</a></li>
+                <li><a href="book-puja.html" class="nav-link">Book Puja</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li id="authNav"><a href="login.html" class="nav-link auth-link">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <p>We're here to help you with your puja needs</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 40px;">
+                <div>
+                    <div style="margin-bottom: 30px; display: flex; gap: 20px;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: #ff6b35; min-width: 50px;"></i>
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 8px;">Location</h4>
+                            <p style="color: #555;">Gajipur, Deoghar, Jharkhand<br>Serving Gajipur & UP Areas</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px; display: flex; gap: 20px;">
+                        <i class="fas fa-envelope" style="font-size: 2rem; color: #ff6b35; min-width: 50px;"></i>
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 8px;">Email</h4>
+                            <p style="color: #555;"><a href="mailto:stxaviers234@gmail.com" style="color: #ff6b35; text-decoration: none; font-weight: 600;">stxaviers234@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <i class="fas fa-phone-alt" style="font-size: 2rem; color: #ff6b35; min-width: 50px;"></i>
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 8px;">Support</h4>
+                            <p style="color: #555;">24/7 Customer Support Available</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contactForm" style="background: #f8f9fa; padding: 30px; border-radius: 10px;">
+                    <div class="form-group">
+                        <label for="contactName">Your Name *</label>
+                        <input type="text" id="contactName" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Your Email *</label>
+                        <input type="email" id="contactEmail" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject">Subject *</label>
+                        <input type="text" id="contactSubject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">Message *</label>
+                        <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gajipur Wala Naina Panda House. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
