@@ -103,6 +103,43 @@ body {
     position: relative;
 }
 
+/* Avatar styles */
+.nav-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    vertical-align: middle;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.dashboard-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.user-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border: 3px solid #fff;
+}
+
+.dashboard-profile-text h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.dashboard-profile-text p {
+    margin: 4px 0 0 0;
+    color: #666;
+}
+
 .user-name {
     color: var(--white-color);
     cursor: pointer;
@@ -709,6 +746,15 @@ section h2::after {
         font-size: 1rem;
     }
 
+    .nav-avatar {
+    display: none;
+}
+
+.user-avatar {
+    width: 56px;
+    height: 56px;
+}
+
     .preview-grid {
         grid-template-columns: 1fr;
     }
@@ -792,6 +838,11 @@ section h2::after {
     .dashboard-header h1 {
         font-size: 1.5rem;
     }
+
+    .user-avatar {
+    width: 48px;
+    height: 48px;
+}
 
     .stat-card {
         flex-direction: column;
@@ -1027,3 +1078,4 @@ section h2::after {
         page-break-inside: avoid;
     }
 }
+
