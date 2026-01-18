@@ -119,3 +119,10 @@
         document.getElementById('profilePhone').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9+\-\s]/g, '');
         });
+// Set profile avatar (use stored picture or UI Avatars fallback)
+const avatarEl = document.getElementById('userAvatar');
+if (avatarEl) {
+    const pic = user.profilePicture || (`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=ff6b35&color=fff&size=128`);
+    avatarEl.src = pic;
+    avatarEl.alt = user.name;
+}
