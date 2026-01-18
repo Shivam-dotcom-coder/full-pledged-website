@@ -61,21 +61,38 @@ if (document.getElementById('bookingForm')) {
     });
 }
 
-// Contact Form Handler
+// Contact Form Handler (submits to Formspree)
 if (document.getElementById('contactForm')) {
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        
-        const formData = {
-            name: document.getElementById('contactName').value,
-            email: document.getElementById('contactEmail').value,
-            message: document.getElementById('contactMessage').value
-        };
 
-        sendBookingEmail(formData);
-        
-        showNotification('success', 'Message sent successfully!');
-        document.getElementById('contactForm').reset();
+        const form = e.target;
+        const action = form.getAttribute('action') || 'https://formspree.io/f/meeeepbv';
+        const fd = new FormData(form);
+
+        // Ensure reply-to header is set when possible
+        const emailField = form.querySelector('[name="email"]');
+        if (emailField && emailField.value) fd.set('_replyto', emailField.value);
+
+        try {
+            const res = await fetch(action, {
+                method: 'POST',
+                body: fd,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (res.ok) {
+                showNotification('success', 'Message sent successfully!');
+                form.reset();
+            } else {
+                const data = await res.json().catch(() => ({}));
+                showNotification('error', data?.error || 'Unable to send message');
+            }
+        } catch (err) {
+            showNotification('error', 'Network error — please try again');
+        }
     });
 }
 
@@ -103,3 +120,4 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
 });
 
 console.log('Website loaded successfully');
+
