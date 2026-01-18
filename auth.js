@@ -216,6 +216,18 @@ class AuthSystem {
         if (authNav) {
             if (this.isLoggedIn()) {
                 const user = this.getCurrentUser();
+                const avatarUrl = user.profilePicture || (`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=ff6b35&color=fff&size=64`);
+authNav.innerHTML = `
+    <div class="user-menu">
+        <img src="${avatarUrl}" class="nav-avatar" alt="${user.name}">
+        <span class="user-name">${user.name}</span>
+        <div class="dropdown-menu">
+            <a href="dashboard.html" class="dropdown-link">Dashboard</a>
+            <a href="profile.html" class="dropdown-link">Profile</a>
+            <a href="javascript:auth.logout()" class="dropdown-link">Logout</a>
+        </div>
+    </div>
+`;
                 authNav.innerHTML = `
                     <div class="user-menu">
                         <span class="user-name">${user.name}</span>
@@ -363,3 +375,4 @@ function showNotification(type, message) {
         }, 300);
     }, 4000);
 }
+
